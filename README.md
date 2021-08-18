@@ -12,6 +12,7 @@
 **languages and tools:**  
 
 <a href="https://github.com/search?q=javascript" title="javascript" ><img alt="javascript" height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></a>
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/jquery/jquery.png"></code>
 
 
 [banner]: https://raw.githubusercontent.com/angel-casillas/angel-casillas/master/angelbg.png
