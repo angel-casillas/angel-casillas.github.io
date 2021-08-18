@@ -11,7 +11,7 @@
 
 **languages and tools:**  
 
-<a href="https://github.com/search?q=javascript" title="javascript" ><img alt="javascript" height="35" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></a>
+<cod style="display: inline-block; padding: .2em .4em 0;"><a href="https://github.com/search?q=javascript" title="javascript" ><img alt="javascript" height="35" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></a></code>
 <a href="https://github.com/search?q=jquery" title="jquery" ><img alt="jquery" height="35" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/jquery/jquery.png"></a>
 <a href="https://github.com/search?q=css3" title="css3" ><img alt="css3" height="35" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png"></a>
 <a href="https://github.com/search?q=html5" title="html5" ><img alt="html5" height="35" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png"></a>
