@@ -21,5 +21,11 @@
 <a href="https://github.com/search?q=git" title="git" ><img alt="git" height="35" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></a>
 
 
+- 🔭 I’m currently working on advanced search engines.
+- 🌱 I’m currently learning Neo4j
+- 📫 How to reach me: <a href="https://www.blobee.com">blobee.com</a>
+- 😄 Pronouns: He, Him.
+
+
 [banner]: https://raw.githubusercontent.com/angel-casillas/angel-casillas/master/angelbg.png
 
