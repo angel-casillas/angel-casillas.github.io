@@ -32,9 +32,9 @@
 <a href="https://github.com/search?q=jira" title="Atlassian jira" ><img alt="Atlassian jira" hspace="10" height="35" src="./logos/jira.png"></a>
 <a href="https://github.com/search?q=confluence" title="Atlassian confluence" ><img alt="Atlassian confluence" hspace="10" height="35" src="./logos/confluence.png"></a>
 
-
-
-
+ 
+ 
+ 
 - 🔭 I’m currently working on advanced search engines.
 - 🌱 I’m currently learning Neo4j
 - 📫 How to reach me: <a href="https://www.blobee.com">blobee.com</a>
