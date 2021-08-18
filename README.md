@@ -1,6 +1,6 @@
 
 
-### hey there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">. I'm Ángel Casillas, full stack web developer, software engineer and project manager at <a target="_blank" href="https://blobee.com">Blobee Software</a>.
+### Hey there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">. I'm Ángel Casillas, full stack web developer, software engineer and project manager at <a target="_blank" href="https://blobee.com">Blobee Software</a>.
 
 ![bg][banner]
 
