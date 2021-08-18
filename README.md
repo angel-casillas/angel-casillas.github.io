@@ -27,10 +27,10 @@
 <a href="https://github.com/search?q=eclipse" title="eclipse" ><img alt="eclipse" height="35" src="./logos/eclipse.png"></a>
 <a href="https://github.com/search?q=visual%20studio%20code" title="visual studio code" ><img alt="visual studio code" height="35" src="./logos/vscode.png"></a>
 
-<a href="https://github.com/search?q=git" title="git" style="margin-right: 10px;"><img alt="git" height="35" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></a>
-<a href="https://github.com/search?q=gitlab" title="gitlab" style="margin-right: 10px;"><img alt="gitlab" height="35" src="./logos/gitlab.png"></a>
-<a href="https://github.com/search?q=jira" title="Atlassian jira" style="margin-right: 10px;"><img alt="Atlassian jira" height="35" src="./logos/jira.png"></a>
-<a href="https://github.com/search?q=confluence" title="Atlassian confluence" style="margin-right: 10px;"><img alt="Atlassian confluence" height="35" src="./logos/confluence.png"></a>
+<a href="https://github.com/search?q=git" title="git" ><img alt="git" height="35" hspace="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></a>
+<a href="https://github.com/search?q=gitlab" title="gitlab" ><img alt="gitlab" hspace="20" height="35" src="./logos/gitlab.png"></a>
+<a href="https://github.com/search?q=jira" title="Atlassian jira" ><img alt="Atlassian jira" hspace="20" height="35" src="./logos/jira.png"></a>
+<a href="https://github.com/search?q=confluence" title="Atlassian confluence" ><img alt="Atlassian confluence" height="35" src="./logos/confluence.png"></a>
 
 
 - 🔭 I’m currently working on advanced search engines.
