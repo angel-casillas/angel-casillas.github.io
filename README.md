@@ -9,7 +9,7 @@
         <img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin" /></a>
 </p>
 
-**languages and tools:**  
+**Languages and tools:**  
 
 <a href="https://github.com/search?q=javascript" title="javascript" ><img alt="javascript" hspace="10" height="35" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></a>
 <a href="https://github.com/search?q=jquery" title="jquery" ><img alt="jquery" hspace="10" height="35" src="./logos/jquery.png"></a>
@@ -39,5 +39,10 @@
 - 😄 Pronouns: He, Him.
 
 
+**Projects:**  
+<a href="./ttt/index.htm">Tic tac toe game</a>
+
+
 [banner]: https://raw.githubusercontent.com/angel-casillas/angel-casillas/master/angelbg.png
+
 
