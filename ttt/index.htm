@@ -68,11 +68,42 @@
 		}
 		
 		#tablero table tr td.sel1 a {
-			background: url('img/t1.png');
+			background: url('img/skins/default/t1.png');
 		}
 		#tablero table tr td.sel2 a {
-			background: url('img/t2.png');
+			background: url('img/skins/default/t2.png');
 		}
+		body.ceatd #tablero table tr td.sel1 a {
+			background: url('img/skins/ceatd/t1.png');
+		}
+		body.ceatd #tablero table tr td.sel2 a {
+			background: url('img/skins/ceatd/t2.png');
+		}	
+		body.ceatd2 #tablero table tr td.sel1 a {
+			background: url('img/skins/ceatd2/t1.png');
+		}
+		body.ceatd2 #tablero table tr td.sel2 a {
+			background: url('img/skins/ceatd2/t2.png');
+		}		
+		body.supers #tablero table tr td.sel1 a {
+			background: url('img/skins/supers/t1.png');
+		}
+		body.supers #tablero table tr td.sel2 a {
+			background: url('img/skins/supers/t2.png');
+		}	
+		body.supers2 #tablero table tr td.sel1 a {
+			background: url('img/skins/supers2/t1.png');
+		}
+		body.supers2 #tablero table tr td.sel2 a {
+			background: url('img/skins/supers2/t2.png');
+		}
+		body.turtles #tablero table tr td.sel1 a {
+			background: url('img/skins/turtles/t1.png');
+		}
+		body.turtles #tablero table tr td.sel2 a {
+			background: url('img/skins/turtles/t2.png');
+		}
+
 		#tablero table tr td.remove a {
 			opacity: .4;
 		}
@@ -196,10 +227,18 @@
 				<option value="last" selected>Modo infinito (último)</option>
 				<option value="rndm">Modo infinito (aleatorio)</option>
 			</select>
+			<select id="menu_skin" name="skin" style="display: none";>
+				<option value="default" selected>Normal</option>
+				<option value="ceatd">Cómo entrenar a tu dragón</option>
+				<option value="ceatd2">Cómo entrenar a tu dragón 2</option>
+				<option value="supers">Superhéroes</option>
+				<option value="supers2">Superhéroes 2</option>
+				<option value="turtles">Tortugas ninja</option>
+			</select>
 		</div>
 		<div class="turno">
-			<img class="t1" src="./img/t1.png"/>
-			<img class="t2" src="./img/t2.png"/>
+			<img class="t1" src="./img/skins/default/t1.png"/>
+			<img class="t2" src="./img/skins/default/t2.png"/>
 		</div> <!-- .turno -->
 		<div id="tablero">
 			<table>
@@ -233,8 +272,8 @@
 		<div class="result">
 			<div class="winner">
 				<h1>Ganador!</h1>
-				<img class="t1" src="./img/t1.png"/>
-				<img class="t2" src="./img/t2.png"/>
+				<img class="t1" src="./img/skins/default/t1.png"/>
+				<img class="t2" src="./img/skins/default/t2.png"/>
 			</div> <!-- .winner -->
 			<div class="tie">
 				<h1>Empate!</h1>

@@ -9,12 +9,21 @@ var p1_checks = [];
 var p2_checks = [];
 
 var n = 0;
+var countSecret = 0;
 
 $(document).ready(function(){
 
   if (localStorage.getItem("mode") != null) {
     mode = localStorage.getItem("mode");
     $("#menu_mode").val(mode);
+  }
+  if (localStorage.getItem("skin") != null) {
+    const skin = localStorage.getItem("skin");
+    $("#menu_skin").val(skin);
+    changeSkin(skin);
+
+    countSecret=7;
+    $("#menu_skin").show();
   }
 
   $("#clean").click(function(e) {
@@ -31,6 +40,27 @@ $(document).ready(function(){
     start();
   });
   
+  $("#menu_skin").change(function(e) {
+    e.preventDefault();
+    const skin = $(this).val();
+
+    localStorage.setItem("skin", skin);    
+    changeSkin(skin);
+
+    start();
+  });
+
+  
+  $(".result .winner img").click(function(e) {
+    e.preventDefault();
+    countSecret ++;
+    if (countSecret>=7) {
+      $("#menu_skin").show();
+    }
+
+  });
+
+
   start();
 
 });
@@ -269,4 +299,10 @@ function countZeros() {
   } 
   console.log('zeros', c);
   return c;
+}
+
+function changeSkin(skin) {
+  $("body").removeClass() .addClass(skin);
+  $("img.t1").attr("src", "./img/skins/" + skin + "/t1.png");
+  $("img.t2").attr("src", "./img/skins/" + skin + "/t2.png");
 }
