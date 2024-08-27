@@ -1,329 +1,334 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Dial</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dial</title>
+
+  
+    <!-- fonts css-->
+    <link href='css/font-montserrat.css' rel='stylesheet' type='text/css'>
+
+  <style>
 
 
-.container {
-  margin: 150px auto;
-  max-width: 960px;
-}
+  .container {
+    margin: 150px auto;
+    max-width: 960px;
+  }
 
-.dial {
-  position: relative;
-  padding: 30px;
-  width: 270px;
-  margin: 20px auto;
-  height: 270px;
-}
+  .dial {
+    position: relative;
+    padding: 30px;
+    width: 270px;
+    margin: 20px auto;
+    height: 270px;
+  }
 
-.dial .circle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  display: block;
-  border-radius: 50%;
-  background-color: #ececec;
-  top: 0;
-  left: 0;
-}
+  .dial .circle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    display: block;
+    border-radius: 50%;
+    background-color: #ececec;
+    top: 0;
+    left: 0;
+  }
 
-.dial .circle.on,
-.dial .circle:hover,
-.dial .circle.hover {
-  background-color: #33FFFF;
-}
+  .dial .circle.on,
+  .dial .circle:hover,
+  .dial .circle.hover {
+    background-color: #33FFFF;
+  }
 
-.dial .selected-freq {
-  position: absolute;
-  top: 46%;
-  left: 35%;
-  color: #074694;
-  font-size: 24px;
-  font-weight: 700;
-  font-family: 'Montserrat SemiBold';
-}
+  .dial .selected-freq {
+    position: absolute;
+    top: 46%;
+    left: 35%;
+    color: #074694;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+  }
 
-.dial .selected-name, 
-.dial .dial-tooltip {
-  position: absolute;
-  color: #074694;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: 'Montserrat Light';
-  white-space: nowrap;
-}
+  .dial .selected-name, 
+  .dial .dial-tooltip {
+    position: absolute;
+    color: #074694;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: 'Montserrat';
+    white-space: nowrap;
+  }
 
-#jogdial {
-  position: relative;
-  width: 240px;
-  height: 240px;
-  margin: 20px auto;
-  background: url('bg_bb.png');
-  background-repeat: none;
-}
-#jogdial_knob {
-  cursor: pointer;
-  background: url('knobb.png');
-}
+  #jogdial {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 20px auto;
+    background: url('bg_bb.png');
+    background-repeat: none;
+  }
+  #jogdial_knob {
+    cursor: pointer;
+    background: url('knobb.png');
+  }
 
-#jog_dial_example_meter {
-  width: 200px;
-  height: 10px;
-  margin: 20px auto 30px;
-  background: #999;
-  overflow: hidden;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-}
-#jog_dial_example_meter div {
-  position: relative;
-  width: 0;
-  height: 100%;
-  background: #33FFFF;
-}
+  #jog_dial_example_meter {
+    width: 200px;
+    height: 10px;
+    margin: 20px auto 30px;
+    background: #999;
+    overflow: hidden;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+  }
+  #jog_dial_example_meter div {
+    position: relative;
+    width: 0;
+    height: 100%;
+    background: #33FFFF;
+  }
 
-</style>
+  </style>
 
-<script src="jquery-1.11.2.min.js" type="text/javascript"></script>
-<script src="jogDial.js"></script>
+  <script src="jquery-1.11.2.min.js" type="text/javascript"></script>
+  <script src="jogDial.js"></script>
 
-<script>
-  let i=0;
-  const emisoras =  [
-    { id: i++, name: 'Monforte de Lemos', freq: 87.8 },
-    { id: i++, name: 'Viveiro', freq: 88.5 },
-    { id: i++, name: 'Barbanza / O Son', freq: 88.8 },
-    { id: i++, name: 'Ourense', freq: 89.3 },
-    { id: i++, name: 'Chantada', freq: 90.4 },
-    { id: i++, name: 'A Coruña', freq: 92.6 },
-    { id: i++, name: 'Pontevedra', freq: 93.1 },
-    { id: i++, name: 'Cee', freq: 94.2 },
-    { id: i++, name: 'Lalín', freq: 94.8 },
-    { id: i++, name: 'Verín', freq: 95.8 },
-    { id: i++, name: 'Xinzo da Limia', freq: 96.9 },
-    { id: i++, name: 'Muros', freq: 97.3 },
-    { id: i++, name: 'O Barco', freq: 97.9 },
-    { id: i++, name: 'Sarria', freq: 98.2 },
-    { id: i++, name: 'Vimianzo', freq: 99.5 },
-    { id: i++, name: 'Carballo', freq: 99.8 },
-    { id: i++, name: 'Ponteareas / Porriño', freq: 101.6 },
-    { id: i++, name: 'Ribadeo', freq: 102.3 },
-    { id: i++, name: 'Vilalba', freq: 103.0 },
-    { id: i++, name: 'Vigo', freq: 103.8 },
-    { id: i++, name: 'Ferrol', freq: 105.4 },
-    { id: i++, name: 'Lugo', freq: 105.6 },
-    { id: i++, name: 'Santiago de conpostela', freq: 106.1 }
-  ];
+  <script>
+    let i=0;
+    const emisoras =  [
+      { id: i++, name: 'Monforte de Lemos', freq: 87.8 },
+      { id: i++, name: 'Viveiro', freq: 88.5 },
+      { id: i++, name: 'Barbanza / O Son', freq: 88.8 },
+      { id: i++, name: 'Ourense', freq: 89.3 },
+      { id: i++, name: 'Chantada', freq: 90.4 },
+      { id: i++, name: 'A Coruña', freq: 92.6 },
+      { id: i++, name: 'Pontevedra', freq: 93.1 },
+      { id: i++, name: 'Cee', freq: 94.2 },
+      { id: i++, name: 'Lalín', freq: 94.8 },
+      { id: i++, name: 'Verín', freq: 95.8 },
+      { id: i++, name: 'Xinzo da Limia', freq: 96.9 },
+      { id: i++, name: 'Muros', freq: 97.3 },
+      { id: i++, name: 'O Barco', freq: 97.9 },
+      { id: i++, name: 'Sarria', freq: 98.2 },
+      { id: i++, name: 'Vimianzo', freq: 99.5 },
+      { id: i++, name: 'Carballo', freq: 99.8 },
+      { id: i++, name: 'Ponteareas / Porriño', freq: 101.6 },
+      { id: i++, name: 'Ribadeo', freq: 102.3 },
+      { id: i++, name: 'Vilalba', freq: 103.0 },
+      { id: i++, name: 'Vigo', freq: 103.8 },
+      { id: i++, name: 'Ferrol', freq: 105.4 },
+      { id: i++, name: 'Lugo', freq: 105.6 },
+      { id: i++, name: 'Santiago de conpostela', freq: 106.1 }
+    ];
 
-  const DIST_REGULAR = false;
-  var dialOne;
+    const DIST_REGULAR = true;
+    var dialOne;
 
-  let lastCircleOver = -1;
-  $(document).ready(function(){
-    dialOne = JogDial(document.getElementById('jogdial'),
-    {
-      wheelSize:'170px', 
-      knobSize:'35px', 
-      degreeStartAt: 0})
-    .on('mousemove', function(evt){
-      //$('#jog_dial_example_meter div').css('width', Math.round((evt.target.rotation/360)*100) + '%' )
-      $(".dial .selected-freq").css({visibility: 'hidden'});
-      let emisora = masCerca(evt.target.rotation);
-      if (emisora.data("emisora").id != lastCircleOver) {
+    let lastCircleOver = -1;
+    $(document).ready(function(){
+      dialOne = JogDial(document.getElementById('jogdial'),
+      {
+        wheelSize:'170px', 
+        knobSize:'35px', 
+        degreeStartAt: 0})
+      .on('mousemove', function(evt){
+        //$('#jog_dial_example_meter div').css('width', Math.round((evt.target.rotation/360)*100) + '%' )
+        $(".dial .selected-freq").css({visibility: 'hidden'});
+        let emisora = masCerca(evt.target.rotation);
+        if (emisora.data("emisora").id != lastCircleOver) {
 
-        $(".dial .circle.hover").removeClass("hover");
-          hideTooltip();
-        if (!emisora.hasClass("on")) {
+          $(".dial .circle.hover").removeClass("hover");
+            hideTooltip();
+          if (!emisora.hasClass("on")) {
 
-          emisora.addClass("hover");
-          showTooltip(emisora);
+            emisora.addClass("hover");
+            showTooltip(emisora);
+          }
+
+          lastCircleOver = emisora.data("emisora").id;
         }
 
-        lastCircleOver = emisora.data("emisora").id;
-      }
-
-    }).on('mouseup', function(evt){
-      let emisora = $(".dial .circle.hover");
-      if (emisora.length==0) {
-        emisora = $(".dial .circle.on");
-      }
-      if (emisora.length>0) {
-        selectEmisora(emisora);
-        moveDial(emisora.data("emisora"));
-      }
-      
-      $(".dial .selected-freq").css({visibility: 'visible'});
-    });
-
-    let w = $(".dial").width();
-    let radius = w/2;
-    let ow = $(".dial").outerWidth();
-
-    let numemisoras = emisoras.length;
-    let gap = 360 / numemisoras;
-
-    emisoras.forEach(function(emisora, i) {
-      var _x =  0,
-          _y =  0;
-
-      if (DIST_REGULAR) {
-        emisora.degrees = 90 + gap*i;
-        if (emisora.degrees>360)
-          emisora.degrees = emisora.degrees - 360;
-        emisora.radians = JogDial.utils.convertClockToUnit(emisora.degrees) * JogDial.ToRad;
-        _x =  Math.cos(emisora.radians) * radius + ow/2 - 4;
-        _y =  Math.sin(emisora.radians) * radius + ow/2;
-      } else {
-        emisora.degrees = (emisora.freq - 87) * 17;
-        emisora.radians = JogDial.utils.convertClockToUnit(emisora.degrees) * JogDial.ToRad;
+      }).on('mouseup', function(evt){
+        let emisora = $(".dial .circle.hover");
+        if (emisora.length==0) {
+          emisora = $(".dial .circle.on");
+        }
+        if (emisora.length>0) {
+          selectEmisora(emisora);
+          moveDial(emisora.data("emisora"));
+        }
         
-        _x =  Math.cos(emisora.radians) * radius + ow/2 - 4;
-        _y =  Math.sin(emisora.radians) * radius + ow/2;
-      }
-
-      $(`<a href="#" class="circle" data-emisora="${emisora.name}" data-idemisora="${emisora.id}" data-freq="${emisora.freq}"></a>`)
-        .appendTo($(".dial"))
-        .data("emisora", emisora)
-        .css({
-          top: _y, left: _x
-        })
-        .mouseover(function(e) {
-          if (!$(this).hasClass("on"))
-            showTooltip($(this));
-        })
-        .mouseout(function(e) {
-          hideTooltip();
-        })
-        .click(function(e) {
-          e.preventDefault();
-
-          selectEmisora($(this));
-          moveDial($(this).data("emisora"));
-          
-          $(".dial .selected-freq").css({visibility: 'visible'});
-        });
-
-    });
-
-    $(".dial")
-      .append(`<div class="selected-name" style="display: none;"></div>`)
-      .append(`<div class="selected-freq" style="display: none;"></div>`)
-      .append(`<div class="dial-tooltip" style="display: none;"></div>`);
-
-  });
-
-  function masCerca(rotation) {
-    if (rotation<0) {
-      rotation = 360 + (rotation % 360);
-    } else {
-      rotation = rotation % 360;
-    }
-
-    let first = $(".dial .circle").get(0);
-    let last = $(".dial .circle").get($(".dial .circle").length-1);
-    if ( $(first).data("emisora").degrees > rotation)
-      return $(first);
-
-    let masCercano = $(last);
-    $(".dial .circle").each(function() {
-      
-      if ($(this).data("emisora").degrees > rotation) {
-        masCercano = $(this).prev();
-        return false;
-      }
-    });
-
-    return masCercano;
-  }
-
-  function selectEmisora(btn) {
-    let emisora = btn.data("emisora");
-    let right = false;
-    if (emisora.degrees > 190 && emisora.degrees < 350) {
-      right = true;
-    }
-    
-    $(".dial .circle").removeClass("on hover");
-    btn.addClass("on");
-    
-    hideTooltip();
-
-    let ow = $(".dial").outerWidth();
-    $(".dial .selected-freq").html(emisora.freq + " FM")
-      .css({
-        visibility: 'hidden'
-      })
-      .show();
-    let l = ow/2 - $(".dial .selected-freq").width()/2;
-    $(".dial .selected-freq")
-      .css({
-        left: l,
-        visibility: 'visible'
+        $(".dial .selected-freq").css({visibility: 'visible'});
       });
 
-    $(".dial .selected-name").html(emisora.name)
-      .css({
-        'visibility': 'hidden',
-        top: parseInt(btn.css('top'), 10) - 5, left: parseInt(btn.css('left'), 10) + 15
-      })
-      .show();
+      let w = $(".dial").width();
+      let radius = w/2;
+      let ow = $(".dial").outerWidth();
 
-    if (right) {
+      let numemisoras = emisoras.length;
+      let gap = 360 / numemisoras;
+
+      emisoras.forEach(function(emisora, i) {
+        var _x =  0,
+            _y =  0;
+
+        if (DIST_REGULAR) {
+          emisora.degrees = 90 + gap*i;
+          if (emisora.degrees>360)
+            emisora.degrees = emisora.degrees - 360;
+          emisora.radians = JogDial.utils.convertClockToUnit(emisora.degrees) * JogDial.ToRad;
+          _x =  Math.cos(emisora.radians) * radius + ow/2 - 4;
+          _y =  Math.sin(emisora.radians) * radius + ow/2;
+        } else {
+          emisora.degrees = (emisora.freq - 87) * 17;
+          emisora.radians = JogDial.utils.convertClockToUnit(emisora.degrees) * JogDial.ToRad;
+          
+          _x =  Math.cos(emisora.radians) * radius + ow/2 - 4;
+          _y =  Math.sin(emisora.radians) * radius + ow/2;
+        }
+
+        $(`<a href="#" class="circle" data-emisora="${emisora.name}" data-idemisora="${emisora.id}" data-freq="${emisora.freq}"></a>`)
+          .appendTo($(".dial"))
+          .data("emisora", emisora)
+          .css({
+            top: _y, left: _x
+          })
+          .mouseover(function(e) {
+            if (!$(this).hasClass("on"))
+              showTooltip($(this));
+          })
+          .mouseout(function(e) {
+            hideTooltip();
+          })
+          .click(function(e) {
+            e.preventDefault();
+
+            selectEmisora($(this));
+            moveDial($(this).data("emisora"));
+            
+            $(".dial .selected-freq").css({visibility: 'visible'});
+          });
+
+      });
+
+      $(".dial")
+        .append(`<div class="selected-name" style="display: none;"></div>`)
+        .append(`<div class="selected-freq" style="display: none;"></div>`)
+        .append(`<div class="dial-tooltip" style="display: none;"></div>`);
+
+    });
+
+    function masCerca(rotation) {
+      if (rotation<0) {
+        rotation = 360 + (rotation % 360);
+      } else {
+        rotation = rotation % 360;
+      }
+
+      let first = $(".dial .circle").get(0);
+      let last = $(".dial .circle").get($(".dial .circle").length-1);
+      if ( $(first).data("emisora").degrees > rotation)
+        return $(first);
+
+      let masCercano = $(last);
+      $(".dial .circle").each(function() {
+        
+        if ($(this).data("emisora").degrees > rotation) {
+          masCercano = $(this).prev();
+          return false;
+        }
+      });
+
+      return masCercano;
+    }
+
+    function selectEmisora(btn) {
+      let emisora = btn.data("emisora");
+      let right = false;
+      if (emisora.degrees > 190 && emisora.degrees < 350) {
+        right = true;
+      }
+      
+      $(".dial .circle").removeClass("on hover");
+      btn.addClass("on");
+      
+      hideTooltip();
+
+      let ow = $(".dial").outerWidth();
+      $(".dial .selected-freq").html(emisora.freq + " FM")
+        .css({
+          visibility: 'hidden'
+        })
+        .show();
+      let l = ow/2 - $(".dial .selected-freq").width()/2;
+      $(".dial .selected-freq")
+        .css({
+          left: l,
+          visibility: 'visible'
+        });
+
+      $(".dial .selected-name").html(emisora.name)
+        .css({
+          'visibility': 'hidden',
+          top: parseInt(btn.css('top'), 10) - 5, left: parseInt(btn.css('left'), 10) + 15
+        })
+        .show();
+
+      if (right) {
+        $(".dial .selected-name").css({
+          left: parseInt(btn.css('left'), 10) - $(".dial .selected-name").width() - 10
+        }); 
+      }
+      
       $(".dial .selected-name").css({
-        left: parseInt(btn.css('left'), 10) - $(".dial .selected-name").width() - 10
+        'visibility': 'visible'
       }); 
     }
-    
-    $(".dial .selected-name").css({
-      'visibility': 'visible'
-    }); 
-  }
-  function moveDial(emisora) {
-    dialOne.angle(emisora.degrees); 
-  }
-
-  function showTooltip(btn) {
-    let emisora = btn.data("emisora");
-    let right = false;
-    if (emisora.degrees > 190 && emisora.degrees < 350) {
-      right = true;
+    function moveDial(emisora) {
+      dialOne.angle(emisora.degrees); 
     }
 
-    $(".dial .dial-tooltip")
-      .html(emisora.name + " " + emisora.freq + " FM")
-      .css({
-        'visibility': 'hidden',
-        'top': parseInt(btn.css('top'), 10) - 5, 
-        'left': parseInt(btn.css('left'), 10) + 15
-      })
-      .show();
+    function showTooltip(btn) {
+      let emisora = btn.data("emisora");
+      let right = false;
+      if (emisora.degrees > 190 && emisora.degrees < 350) {
+        right = true;
+      }
 
-    if (right) {
+      $(".dial .dial-tooltip")
+        .html(emisora.name + " " + emisora.freq + " FM")
+        .css({
+          'visibility': 'hidden',
+          'top': parseInt(btn.css('top'), 10) - 5, 
+          'left': parseInt(btn.css('left'), 10) + 15
+        })
+        .show();
+
+      if (right) {
+        $(".dial .dial-tooltip").css({
+          left: parseInt(btn.css('left'), 10) - $(".dial .dial-tooltip").width() - 10
+        }); 
+      }
+      
       $(".dial .dial-tooltip").css({
-        left: parseInt(btn.css('left'), 10) - $(".dial .dial-tooltip").width() - 10
+        'visibility': 'visible'
       }); 
+
     }
     
-    $(".dial .dial-tooltip").css({
-      'visibility': 'visible'
-    }); 
+    function hideTooltip() {
+      $(".dial .dial-tooltip").empty().hide();
 
-  }
-  
-  function hideTooltip() {
-    $(".dial .dial-tooltip").empty().hide();
+    }
 
-  }
-
-</script>
+  </script>
 </head>
 <body>
   <div class="container">
