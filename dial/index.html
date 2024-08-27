@@ -49,7 +49,7 @@
     left: 35%;
     color: #074694;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 400;
     font-family: 'Montserrat';
   }
 
@@ -58,7 +58,7 @@
     position: absolute;
     color: #074694;
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 700;
     font-family: 'Montserrat';
     white-space: nowrap;
   }
@@ -277,7 +277,7 @@
       $(".dial .selected-name").html(emisora.name)
         .css({
           'visibility': 'hidden',
-          top: parseInt(btn.css('top'), 10) - 5, left: parseInt(btn.css('left'), 10) + 15
+          top: parseInt(btn.css('top'), 10) - 7, left: parseInt(btn.css('left'), 10) + 15
         })
         .show();
 
@@ -306,7 +306,7 @@
         .html(emisora.name + " " + emisora.freq + " FM")
         .css({
           'visibility': 'hidden',
-          'top': parseInt(btn.css('top'), 10) - 5, 
+          'top': parseInt(btn.css('top'), 10) - 7, 
           'left': parseInt(btn.css('left'), 10) + 15
         })
         .show();
