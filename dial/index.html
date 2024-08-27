@@ -128,7 +128,7 @@
       { id: i++, name: 'Santiago de conpostela', freq: 106.1 }
     ];
 
-    const DIST_REGULAR = true;
+    const DIST_REGULAR = false;
     var dialOne;
 
     let lastCircleOver = -1;
@@ -180,7 +180,7 @@
             _y =  0;
 
         if (DIST_REGULAR) {
-          emisora.degrees = 90 + gap*i;
+          emisora.degrees = gap*i;
           if (emisora.degrees>360)
             emisora.degrees = emisora.degrees - 360;
           emisora.radians = JogDial.utils.convertClockToUnit(emisora.degrees) * JogDial.ToRad;
