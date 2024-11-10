@@ -42,7 +42,7 @@
 
 
 **Projects:**  
-- <a href="./ttt/index.htm">Tic tac toe game</a>
+- <a href="https://angel-casillas.github.io/ttt/">Tic tac toe game</a>
 
 
 [banner]: https://raw.githubusercontent.com/angel-casillas/angel-casillas/master/angelbg.png
