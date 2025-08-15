@@ -43,6 +43,7 @@
 
 **Projects:**  
 - <a href="https://github.com/angel-casillas/tictactoe">Tic tac toe game</a>
+- <a href="https://github.com/angel-casillas/tictactoe4">3 players tic tac toe game</a>
 
 
 [banner]: https://raw.githubusercontent.com/angel-casillas/angel-casillas/master/angelbg.png
