@@ -16,8 +16,8 @@ var n = 0;
 
 $(document).ready(function(){
 
-  if (localStorage.getItem("mode") != null) {
-    const savedmode = localStorage.getItem("mode");
+  if (localStorage.getItem("ttt4mode") != null) {
+    const savedmode = localStorage.getItem("ttt4mode");
     let arr = savedmode.split("-");
     
     mode = {
@@ -44,7 +44,7 @@ $(document).ready(function(){
       tokens: arr[1]
     };
 
-    localStorage.setItem("mode", selectedmode);
+    localStorage.setItem("ttt4mode", selectedmode);
 
     start();
   });
